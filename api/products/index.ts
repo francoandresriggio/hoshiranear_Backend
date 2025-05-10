@@ -6,7 +6,13 @@ import { INTERNAL_SERVER_ERROR, NOT_FOUND } from "http-status-codes";
 
 export default async (req: VercelRequest, res: VercelResponse) => {
   // Manejo de CORS
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Cambia según sea necesario
+  const allowedOrigins = ["http://localhost:3000", "https://francoandresriggio.github.io"];
+  const origin = req.headers.origin || "";
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Permitir métodos
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Permitir encabezados
 
