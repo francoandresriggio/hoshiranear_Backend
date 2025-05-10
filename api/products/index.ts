@@ -13,6 +13,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
 
+  
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Permitir métodos
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Permitir encabezados
 
